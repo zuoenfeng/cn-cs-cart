@@ -1,43 +1,44 @@
 *****************************************************************
-500 Internal Server Error During CS-Cart Installation or After It
+安装cs-cart后,出现：“服务器内部错误500”
 *****************************************************************
 
-There are two possible reasons why **500 Internal Server Error** might appear.
+出现“服务器内部错误500”的两个可能原因。
 
 ==============================================
-Reason 1. Incorrect File/Directory Permissions
+原因1.文件/目录权限不正确
 ==============================================
 
-Some webservers do not allow executing PHP scripts with the permissions higher than 755 or 644. Change the permissions for your files and directories to 755 in order to resolve this issue.
+某些Web服务器不允许执行权限高于755或644的PHP脚本。将文件和目录的权限更改为755以解决此问题。
+要设置权限，请完成以下步骤：
 
-To set up the permissions, complete the steps below:
-
-* On a Unix-based server with terminal access, use the following command:
+在具有终端访问权限的基于Unix的服务器上，使用以下命令：
 
 ::
 
   chmod 755 index.php 
 
-The command sets the 755 permissions for all CS-Cart scripts (at least, for **index.php** and **admin.php** located in the CS-Cart root directory, and for **index.php** located in the install directory). Use this command, if you get the mentioned **500 Internal Server Error** after the installation.
+该命令设置所有CS-Cart脚本的755权限（至少对于位于CS-Cart根目录中的index.php和admin.php以及位于安装目录中的index.php）。使用此命令，如果在安装后收到提到的500内部服务器错误。
 
-.. note:: 
+.. 注意:: 
 
-    The **755** permissions mean **read, write and execute** permissions for the **file user**, and **read and write** permissions for the **user group** and **others**. :doc:`Learn more about permissions in CS-Cart documentation <../useful_info/permissions>`.
+   在755级权限的意思是读，写和执行的权限文件中的用户，以及读取和写入的权限用户组和其他人。：doc：`了解有关CS-Cart文档中的权限的更多信息<../ useful_info / permissions>`。
 
-If you do not have terminal access to your server, change file access permissions using an FTP client. Most FTP clients have the **Change permissions** or **Change mode** functions, that you can use to set permissions. For more detailed instructions on how to set file permissions refer to your FTP client documentation.
+如果您没有终端访问您的服务器，请使用FTP客户端更改文件访问权限。大多数FTP客户端具有更改权限或更改模式功能，您可以使用它们设置权限。有关如何设置文件权限的更详细说明，请参阅FTP客户端文档。
+
  
-.. note::
+.. 注意::
 
-    Contact your hosting support team for information about proper permissions for PHP files and directories.
+    有关PHP文件和目录的正确权限的信息，请联系您的托管支持小组。
 
-* On a WINDOWS-based server, set read permissions for the files and directories to the user with the IUSR account.
+* 在基于WINDOWS的服务器上，使用IUSR帐户为用户设置文件和目录的读取权限。
 
 ========================================================
-Reason 2. The Web Server Doesn't Support Some Directives
+原因2. Web服务器不支持某些指令
 ========================================================
 
-The second possible reason for 500 Internal Server Error is that your web server does not support some directives of the CS-Cart **.htaccess** file.
+500内部服务器错误的第二个可能原因是您的Web服务器不支持CS-Cart .htaccess文件的一些指令。
 
-To solve the problem, try renaming the **.htaccess** file located in the root directory of your CS-Cart installation to something else, for example, **.htaccess1**. 
+要解决此问题，请尝试将位于CS-Cart安装根目录中的.htaccess文件重命名为其他，例如.htaccess1。
 
-If renaming **.htaccess** helps, contact your server administrator. Send them the content of the CS-Cart **.htaccess** file and ask which directives are not supported on your server.
+如果重命名.htaccess有帮助，请与您的服务器管理员联系。向他们发送CS-Cart .htaccess文件的内容，并询问您的服务器不支持哪些指令。
+
